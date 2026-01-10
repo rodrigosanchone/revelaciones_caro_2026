@@ -55,24 +55,3 @@ export async function getArticleById(id: string) {
 }
 
 // Función para buscar artículos por título
-export async function searchArticlesByTitle(keyword: string) {
-  // 👈 tipamos keyword
-  try {
-    const articlesRef = collection(db, "articles");
-    const q = query(
-      articlesRef,
-      where("titulo", "array-contains-any", [keyword]), // 👈 debe ser array
-      orderBy("fecha", "desc")
-    );
-    const results = await getDocs(q); // 👈 corregido: antes usabas setDoc
-    const matchingArticles = results.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-
-    return matchingArticles;
-  } catch (error) {
-    console.error("Error al buscar artículos por título:", error);
-    return [];
-  }
-}
