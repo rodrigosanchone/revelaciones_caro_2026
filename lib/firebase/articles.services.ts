@@ -9,7 +9,7 @@ import {
   where,
   setDoc,
 } from "firebase/firestore";
-import { db } from "./environmen";
+import { db } from "./environments";
 
 // Función para obtener los últimos 6 artículos
 export async function getLastArticles() {
