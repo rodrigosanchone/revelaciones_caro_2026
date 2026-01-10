@@ -2,7 +2,7 @@ import {
   collection,
   getDocs,
   query,
-  vercel --force
+  orderBy,
   limit,
   getDoc,
   doc,
