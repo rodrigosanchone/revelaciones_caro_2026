@@ -39,7 +39,7 @@ export async function getAllArticles() {
 export async function getArticleById(id: string) {
   // 👈 aquí tipamos el parámetro
   try {
-    const docRef = doc(db, "articles", id);
+    const docRef = doc(db, "articles", String(id));
     const docSnapshot = await getDoc(docRef);
 
     if (docSnapshot.exists()) {
