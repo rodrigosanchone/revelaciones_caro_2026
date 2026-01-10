@@ -7,23 +7,22 @@ import {
   getDoc,
   doc,
   where,
-  setDoc,
 } from "firebase/firestore";
 import { db } from "./environments";
 
 // Función para obtener los últimos 6 artículos
 export async function getLastArticles() {
   const articlesRef = collection(db, "articles");
-  const q = query(articlesRef, orderBy("fecha", "desc"), limit(2));
+  const q = query(articlesRef, orderBy("fecha", "desc"), limit(6)); // ajusta a 6 si quieres realmente 6
   const results = await getDocs(q);
   const articles = results.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   }));
-  return articles; // Devuelve solo los últimos 6 artículos
+  return articles;
 }
 
-// Función para obtener todos los artículos excepto los últimos 6
+// Función para obtener todos los artículos
 export async function getAllArticles() {
   const articlesRef = collection(db, "articles");
   const q = query(articlesRef, orderBy("fecha", "desc"));
@@ -36,9 +35,11 @@ export async function getAllArticles() {
   return allArticles;
 }
 
-export async function getArticleById(id) {
+// Función para obtener un artículo por ID
+export async function getArticleById(id: string) {
+  // 👈 aquí tipamos el parámetro
   try {
-    const docRef = doc(db, "articles", String(id));
+    const docRef = doc(db, "articles", id);
     const docSnapshot = await getDoc(docRef);
 
     if (docSnapshot.exists()) {
@@ -53,15 +54,17 @@ export async function getArticleById(id) {
   }
 }
 
-export async function searchArticlesByTitle(keyword) {
+// Función para buscar artículos por título
+export async function searchArticlesByTitle(keyword: string) {
+  // 👈 tipamos keyword
   try {
     const articlesRef = collection(db, "articles");
     const q = query(
       articlesRef,
-      where("titulo", "array-contains-any", keyword), // Filtramos por título que contiene la palabra clave
+      where("titulo", "array-contains-any", [keyword]), // 👈 debe ser array
       orderBy("fecha", "desc")
     );
-    const results = await setDoc(q);
+    const results = await getDocs(q); // 👈 corregido: antes usabas setDoc
     const matchingArticles = results.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
