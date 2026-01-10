@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,16 +24,16 @@ export async function generateMetadata() {
       default: "Revelaciones de caro",
       template: "%s -Revelaciones de caro",
     },
-    description: "Diseño y Desarrollo Web",
+    description: "Blog de Filosofía y Astrología",
     openGraph: {
-      title: "RodriCode-Rodrigo Sancho",
-      description: "Diseño y Desarrollo Web",
+      title: "Revelaciones de caro",
+      description: "Blog de Filosofía y Astrología",
       images: [
         {
-          url: "https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          url: "https://firebasestorage.googleapis.com/v0/b/carovictorialocutora-ab405.firebasestorage.app/o/caro.jpg?alt=media&token=37b67aee-cb27-4b17-b486-b086262e67b2",
           width: 800,
           height: 600,
-          alt: "RodriCode",
+          alt: "",
         },
       ],
     },
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header></Header>
         {children}
       </body>
     </html>

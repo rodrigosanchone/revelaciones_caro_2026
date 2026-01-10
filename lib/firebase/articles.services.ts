@@ -9,16 +9,24 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "./environments";
+import { Article } from "@/app/types/types";
 
 // Función para obtener los últimos 6 artículos
-export async function getLastArticles() {
+export async function getLastArticles(): Promise<Article[]> {
   const articlesRef = collection(db, "articles");
-  const q = query(articlesRef, orderBy("fecha", "desc"), limit(6)); // ajusta a 6 si quieres realmente 6
+  const q = query(articlesRef, orderBy("fecha", "desc"), limit(2)); // ajusta el límite a 2 si solo quieres los dos últimos
   const results = await getDocs(q);
-  const articles = results.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+
+  const articles: Article[] = results.docs.map((doc) => {
+    const data = doc.data() as Article; // aquí extraes los campos del documento
+    return {
+      id: doc.id,
+      titulo: data.titulo,
+      img: data.img,
+      fecha: data.fecha,
+    };
+  });
+
   return articles;
 }
 
