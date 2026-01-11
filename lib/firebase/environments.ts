@@ -14,8 +14,14 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 
-export const emailJsConfig = {
-  YOUR_SERVICE_ID: "process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID",
-  YOUR_TEMPLATE_ID: "process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID",
-  YOUR_PUBLIC_KEY: "process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY",
+interface EmailJsConfig {
+  serviceId: string;
+  templateId: string;
+  publicKey: string;
+}
+
+export const emailJsConfig: EmailJsConfig = {
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
 };

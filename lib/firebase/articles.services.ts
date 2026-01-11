@@ -46,14 +46,16 @@ export async function getAllArticles() {
 }
 
 // Función para obtener un artículo por ID
-export async function getArticleById(id: string) {
-  // 👈 aquí tipamos el parámetro
+export async function getArticleById(id: string): Promise<Article | null> {
   try {
     const docRef = doc(db, "articles", String(id));
     const docSnapshot = await getDoc(docRef);
 
     if (docSnapshot.exists()) {
-      return { id: docSnapshot.id, ...docSnapshot.data() };
+      return {
+        id: docSnapshot.id,
+        ...(docSnapshot.data() as Omit<Article, "id">),
+      };
     } else {
       console.warn("No se encontró ningún artículo con el ID proporcionado.");
       return null;
