@@ -101,7 +101,9 @@ export default function PostList() {
             current={pageIndex}
             total={articles.length} // ✅ ahora sí son 45
             perPage={pageSize}
-            onPageChange={(newPage: number) => router.push(`/?page=${newPage}`)}
+            onPageChange={(newPage: number) =>
+              router.push(`/blog?page=${newPage}`)
+            }
           />
         </>
       )}
