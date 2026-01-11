@@ -99,7 +99,7 @@ export default function PostList() {
 
           <Paginator
             current={pageIndex}
-            total={totalPages}
+            total={articles.length} // ✅ ahora sí son 45
             perPage={pageSize}
             onPageChange={(newPage: number) => router.push(`/?page=${newPage}`)}
           />

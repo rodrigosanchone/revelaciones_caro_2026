@@ -1,15 +1,14 @@
 import Image from "next/image";
 import TwoPost from "./components/twoPost";
-import PostList from "./components/postList";
+import PostListPreview from "./components/postListPreview";
 import { Suspense } from "react";
 
 export default function Home() {
   return (
     <div className="">
       <TwoPost></TwoPost>
-      <Suspense fallback={<div>Cargando artículos...</div>}>
-        <PostList />
-      </Suspense>
+      <PostListPreview></PostListPreview>
+      <Suspense fallback={<div>Cargando artículos...</div>}></Suspense>
     </div>
   );
 }

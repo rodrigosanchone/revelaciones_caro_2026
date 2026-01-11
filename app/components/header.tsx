@@ -49,9 +49,11 @@ export default function Header() {
           <Link href="/sobre-mi" className="hover:text-indigo-600">
             Sobre mí
           </Link>
-
+          <Link href="/contacto" className="hover:text-indigo-600">
+            Contacto
+          </Link>
           {/* Dropdown Sistema */}
-          <div className="relative">
+          {/*<div className="relative">
             <button
               onClick={() => setShowDropdown(!showDropdown)}
               className="hover:text-indigo-600"
@@ -64,21 +66,17 @@ export default function Header() {
                   href="/sistema/parte1"
                   className="block py-1 hover:text-indigo-600"
                 >
-                  Parte 1
+                  Dia
                 </Link>
                 <Link
                   href="/sistema/parte2"
                   className="block py-1 hover:text-indigo-600"
                 >
-                  Parte 2
+                  Noche
                 </Link>
               </div>
             )}
-          </div>
-
-          <Link href="/contacto" className="hover:text-indigo-600">
-            Contacto
-          </Link>
+          </div>*/}
         </nav>
       </div>
     </header>

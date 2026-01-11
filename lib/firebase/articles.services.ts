@@ -40,6 +40,8 @@ export async function getAllArticles() {
     ...doc.data(),
   }));
 
+  console.log("Total artículos:", allArticles.length);
+
   return allArticles;
 }
 
