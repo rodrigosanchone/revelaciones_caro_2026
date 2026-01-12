@@ -90,9 +90,7 @@ export default async function PostPage({ params }: PageProps) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12">
         <article>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-            {post.titulo}
-          </h1>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6"></h1>
 
           <div className="flex items-center gap-4 mb-8">
             <div>
