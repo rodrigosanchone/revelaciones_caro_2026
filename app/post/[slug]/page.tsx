@@ -79,10 +79,10 @@ export default async function PostPage({ params }: PageProps) {
         })
       : "Fecha desconocida";
 
-    const autorNombre = post.author || "Autor desconocido";
+    const autorNombre = post.autor || "Autor desconocido";
     const autorFoto = null; // si no tienes foto en tu modelo
     const contenidoSeguro =
-      typeof post.content === "string" ? post.content : "";
+      typeof post.contenido === "string" ? post.contenido : "";
     const hasVideo =
       typeof post.youtubeVideoId === "string" &&
       post.youtubeVideoId.length === 11;
