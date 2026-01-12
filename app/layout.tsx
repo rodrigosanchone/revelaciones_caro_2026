@@ -31,7 +31,7 @@ export async function generateMetadata() {
       description: "Blog de Filosofía y Astrología",
       images: [
         {
-          url: "https://firebasestorage.googleapis.com/v0/b/carovictorialocutora-ab405.firebasestorage.app/o/caro.jpg?alt=media&token=37b67aee-cb27-4b17-b486-b086262e67b2",
+          url: "https://firebasestorage.googleapis.com/v0/b/blog-ca662.appspot.com/o/perfil.jpg?alt=media&token=42a2a5d7-f5b6-4b9b-b511-8b04b699354d",
           width: 800,
           height: 600,
           alt: "",
@@ -41,13 +41,13 @@ export async function generateMetadata() {
     twitter: {
       card: "summary_large_image",
       site: "",
-      creator: "Rodrigo Sancho",
-      title: "RodriCode-Rodrigo Sancho",
-      description: "Diseño y Desarrollo Web",
+      creator: "Revelaciones de caro",
+      title: "Revelaciones de caro",
+      description: "DBlog de Filosofía y Astrología",
       images: [
         {
-          url: "https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          alt: "RodriCode",
+          url: "https://firebasestorage.googleapis.com/v0/b/blog-ca662.appspot.com/o/perfil.jpg?alt=media&token=42a2a5d7-f5b6-4b9b-b511-8b04b699354d",
+          alt: "IMAGEN CARO ",
         },
       ],
     },
