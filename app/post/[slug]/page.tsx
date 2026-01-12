@@ -136,14 +136,14 @@ export default async function PostPage({ params }: PageProps) {
           ) : post.img ? (
             <div className="mt-16 flex justify-center">
               <div className="relative w-full max-w-4xl h-80 sm:h-[28rem]">
-                <Image
+                {/*   <Image
                   src={post.img}
                   alt={post.titulo}
                   fill
                   className="object-cover rounded-xl shadow-md"
                   sizes="(max-width: 768px) 100vw, 768px"
                   priority
-                />
+                /> */}
               </div>
             </div>
           ) : null}
