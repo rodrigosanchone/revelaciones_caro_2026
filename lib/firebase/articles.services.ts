@@ -23,7 +23,11 @@ export async function getLastArticles(): Promise<Article[]> {
       id: doc.id,
       titulo: data.titulo,
       img: data.img,
-      fecha: data.fecha,
+      fecha: data.fecha ?? "Fecha desconocida",
+      description: data.description ?? "",
+      autor: data.autor ?? "Autor desconocido",
+      youtubeVideoId: data.youtubeVideoId ?? "",
+      contenido: data.contenido ?? "",
     };
   });
 

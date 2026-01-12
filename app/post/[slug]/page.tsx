@@ -94,9 +94,7 @@ export default async function PostPage({ params }: PageProps) {
 
           <div className="flex items-center gap-4 mb-8">
             <div>
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {post.autor}
-              </p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300"></p>
             </div>
           </div>
 
