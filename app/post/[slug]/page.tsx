@@ -90,11 +90,15 @@ export default async function PostPage({ params }: PageProps) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12">
         <article>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6"></h1>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+            {post.titulo}
+          </h1>
 
           <div className="flex items-center gap-4 mb-8">
             <div>
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300"></p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                {post.contenido}
+              </p>
             </div>
           </div>
 
@@ -159,7 +163,7 @@ export default async function PostPage({ params }: PageProps) {
 
           <div className="mt-10 flex gap-6 justify-center text-gray-600 dark:text-gray-300">
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://carovictorialocutora.com/post/${slug}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://revelacionesdecaro.com/post/${slug}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600"
@@ -168,7 +172,7 @@ export default async function PostPage({ params }: PageProps) {
               <FaFacebook size={24} />
             </a>
             <a
-              href={`https://api.whatsapp.com/send?text=https://carovictorialocutora.com/post/${slug}`}
+              href={`https://api.whatsapp.com/send?text=https://revelacionesdecaro.compost/${slug}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-green-500"
@@ -177,7 +181,7 @@ export default async function PostPage({ params }: PageProps) {
               <FaWhatsapp size={24} />
             </a>
             <a
-              href={`https://twitter.com/intent/tweet?url=https://carovictorialocutora.com/post/${slug}&text=${encodeURIComponent(
+              href={`https://twitter.com/intent/tweet?url=https://revelacionesdecaro.com/post/${slug}&text=${encodeURIComponent(
                 post.titulo
               )}`}
               target="_blank"
