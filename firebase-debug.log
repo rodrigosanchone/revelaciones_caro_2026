@@ -1,0 +1,59 @@
+[debug] [2026-02-18T00:25:50.415Z] ----------------------------------------------------------------------
+[debug] [2026-02-18T00:25:50.421Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\rodri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-02-18T00:25:50.423Z] CLI Version:   13.34.0
+[debug] [2026-02-18T00:25:50.424Z] Platform:      win32
+[debug] [2026-02-18T00:25:50.424Z] Node Version:  v20.12.2
+[debug] [2026-02-18T00:25:50.424Z] Time:          Tue Feb 17 2026 18:25:50 GMT-0600 (hora estándar central)
+[debug] [2026-02-18T00:25:50.425Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-18T00:25:50.829Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T00:25:50.829Z] > authorizing via signed-in user (revelacionesdecaroweb@gmail.com)
+[debug] [2026-02-18T00:25:50.830Z] [iam] checking project blog-ca662 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-18T00:25:50.832Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:50.832Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:50.834Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions [none]
+[debug] [2026-02-18T00:25:50.834Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions x-goog-quota-user=projects/blog-ca662
+[debug] [2026-02-18T00:25:50.835Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-18T00:25:51.309Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions 200
+[debug] [2026-02-18T00:25:51.309Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-18T00:25:51.310Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:51.311Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:51.311Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 [none]
+[debug] [2026-02-18T00:25:51.684Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 200
+[debug] [2026-02-18T00:25:51.684Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 {"projectId":"blog-ca662","projectNumber":"284614412812","displayName":"blog","name":"projects/blog-ca662","resources":{"hostingSite":"blog-ca662","locationId":"us-central"},"state":"ACTIVE","etag":"1_8fee3b47-4e60-4f8b-bf6a-c3efe9b505a6"}
+[debug] [2026-02-18T00:25:57.734Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:57.734Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:25:57.735Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/blog-ca662/sites pageToken=&pageSize=10
+[debug] [2026-02-18T00:26:08.860Z] ----------------------------------------------------------------------
+[debug] [2026-02-18T00:26:08.864Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\rodri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-02-18T00:26:08.865Z] CLI Version:   13.34.0
+[debug] [2026-02-18T00:26:08.866Z] Platform:      win32
+[debug] [2026-02-18T00:26:08.866Z] Node Version:  v20.12.2
+[debug] [2026-02-18T00:26:08.866Z] Time:          Tue Feb 17 2026 18:26:08 GMT-0600 (hora estándar central)
+[debug] [2026-02-18T00:26:08.866Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-18T00:26:09.299Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T00:26:09.300Z] > authorizing via signed-in user (revelacionesdecaroweb@gmail.com)
+[debug] [2026-02-18T00:26:09.300Z] [iam] checking project blog-ca662 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-18T00:26:09.302Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:09.303Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:09.305Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions [none]
+[debug] [2026-02-18T00:26:09.305Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions x-goog-quota-user=projects/blog-ca662
+[debug] [2026-02-18T00:26:09.305Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-18T00:26:09.802Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions 200
+[debug] [2026-02-18T00:26:09.803Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blog-ca662:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-18T00:26:09.804Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:09.806Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:09.807Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 [none]
+[debug] [2026-02-18T00:26:10.230Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 200
+[debug] [2026-02-18T00:26:10.230Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blog-ca662 {"projectId":"blog-ca662","projectNumber":"284614412812","displayName":"blog","name":"projects/blog-ca662","resources":{"hostingSite":"blog-ca662","locationId":"us-central"},"state":"ACTIVE","etag":"1_8fee3b47-4e60-4f8b-bf6a-c3efe9b505a6"}
+[debug] [2026-02-18T00:26:17.662Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:17.662Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:17.663Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/blog-ca662/sites pageToken=&pageSize=10
+[debug] [2026-02-18T00:26:18.482Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/blog-ca662/sites 200
+[debug] [2026-02-18T00:26:18.482Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/blog-ca662/sites {"sites":[{"name":"projects/blog-ca662/sites/blog-ca662","defaultUrl":"https://blog-ca662.web.app","appId":"1:284614412812:web:1c1ccb42f7e0870875fc29","type":"DEFAULT_SITE"}]}
+[debug] [2026-02-18T00:26:18.482Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:18.482Z] Checked if tokens are valid: true, expires at: 1771377419999
+[debug] [2026-02-18T00:26:18.483Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:284614412812:web:1c1ccb42f7e0870875fc29/config [none]
+[debug] [2026-02-18T00:26:18.949Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:284614412812:web:1c1ccb42f7e0870875fc29/config 200
+[debug] [2026-02-18T00:26:18.949Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:284614412812:web:1c1ccb42f7e0870875fc29/config {"projectId":"blog-ca662","appId":"1:284614412812:web:1c1ccb42f7e0870875fc29","storageBucket":"blog-ca662.appspot.com","locationId":"us-central","apiKey":"AIzaSyAvvbq7egmHbW1z6wy8N-0aNeKOUg1a0Q8","authDomain":"blog-ca662.firebaseapp.com","messagingSenderId":"284614412812","measurementId":"G-R62489Y36G","projectNumber":"284614412812","version":"2"}

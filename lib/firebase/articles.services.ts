@@ -26,7 +26,7 @@ export async function getLastArticles(): Promise<Article[]> {
       fecha: data.fecha ?? "Fecha desconocida",
       description: data.description ?? "",
       autor: data.autor ?? "Autor desconocido",
-      youtubeVideoId: data.youtubeVideoId ?? "",
+      urlVideo: data.urlVideo ?? "",
       contenido: data.contenido ?? "",
     };
   });

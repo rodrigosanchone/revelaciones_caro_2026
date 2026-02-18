@@ -7,7 +7,7 @@ export interface Article {
   fecha?: string;
   description: string;
   autor: string;
-  youtubeVideoId: string;
+  urlVideo: string;
   contenido: string;
 }
 

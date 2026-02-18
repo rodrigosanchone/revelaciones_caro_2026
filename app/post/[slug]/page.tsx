@@ -3,18 +3,17 @@ import type { Metadata } from "next";
 import { FaFacebook, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
-import { getArticleById } from "@/lib/firebase/articles.services"; // 👈 servicio
-import { db } from "@/lib/firebase/environments"; // 👈 db
-import { doc, getDoc } from "firebase/firestore"; // 👈 Firestore
+import { getArticleById } from "@/lib/firebase/articles.services";
+import { db } from "@/lib/firebase/environments";
+import { doc, getDoc } from "firebase/firestore";
 import type { PageProps } from "@/app/types/types";
 
 export const dynamic = "force-dynamic";
 
-// ✅ Metadata usando el servicio
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params; // 👈 aquí sí necesitas await
+  const { slug } = await params;
   const post = await getArticleById(slug);
 
   if (!post) {
@@ -53,8 +52,9 @@ export async function generateMetadata({
     },
   };
 }
+
 export default async function PostPage({ params }: PageProps) {
-  const { slug } = await params; // 👈 await porque params es Promise
+  const { slug } = await params;
 
   try {
     const post = await getArticleById(slug);
@@ -65,12 +65,10 @@ export default async function PostPage({ params }: PageProps) {
       );
     }
 
-    // meta de Firestore
     const metaRef = doc(db, "postMeta", slug);
     const metaSnap = await getDoc(metaRef);
     const meta = metaSnap.exists() ? metaSnap.data() : null;
 
-    // fecha
     const fecha = post?.fecha
       ? new Date(post.fecha).toLocaleDateString("es-CR", {
           year: "numeric",
@@ -79,13 +77,10 @@ export default async function PostPage({ params }: PageProps) {
         })
       : "Fecha desconocida";
 
-    const autorNombre = post.autor || "Autor desconocido";
-    const autorFoto = null; // si no tienes foto en tu modelo
     const contenidoSeguro =
       typeof post.contenido === "string" ? post.contenido : "";
     const hasVideo =
-      typeof post.youtubeVideoId === "string" &&
-      post.youtubeVideoId.length === 11;
+      typeof post.urlVideo === "string" && post.urlVideo.trim() !== "";
 
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12">
@@ -93,26 +88,6 @@ export default async function PostPage({ params }: PageProps) {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
             {post.titulo}
           </h1>
-
-          <div className="flex items-center gap-4 mb-8">
-            <div>
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {post.contenido}
-              </p>
-            </div>
-          </div>
-
-          {/*  <div className="prose prose-lg dark:prose-invert max-w-none">
-            {contenidoSeguro ? (
-              contenidoSeguro.includes("<p>") ? (
-                <div dangerouslySetInnerHTML={{ __html: contenidoSeguro }} />
-              ) : (
-                contenidoSeguro.split("\n").map((p, i) => <p key={i}>{p}</p>)
-              )
-            ) : (
-              <p className="text-red-500">Contenido no disponible</p>
-            )}
-          </div> */}
 
           {meta && (
             <div className="mt-10 text-sm text-gray-500 dark:text-gray-400">
@@ -125,7 +100,7 @@ export default async function PostPage({ params }: PageProps) {
             <div className="mt-16 flex justify-center">
               <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-md">
                 <iframe
-                  src={`https://www.youtube.com/embed/${post.youtubeVideoId}`}
+                  src={post.urlVideo}
                   title="Video de YouTube"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -136,19 +111,29 @@ export default async function PostPage({ params }: PageProps) {
           ) : post.img ? (
             <div className="mt-16 flex justify-center">
               <div className="relative w-full max-w-4xl h-80 sm:h-[28rem]">
-                {/*   <Image
+                <Image
                   src={post.img}
                   alt={post.titulo}
                   fill
                   className="object-cover rounded-xl shadow-md"
                   sizes="(max-width: 768px) 100vw, 768px"
                   priority
-                /> */}
+                />
               </div>
             </div>
           ) : null}
 
-          <div className="mt-8 mx-4 text-justify">{post.contenido}</div>
+          <div className="prose prose-lg dark:prose-invert max-w-none mt-8 mx-4">
+            {contenidoSeguro ? (
+              contenidoSeguro.includes("<p>") ? (
+                <div dangerouslySetInnerHTML={{ __html: contenidoSeguro }} />
+              ) : (
+                contenidoSeguro.split("\n").map((p, i) => <p key={i}>{p}</p>)
+              )
+            ) : (
+              <p className="text-red-500">Contenido no disponible</p>
+            )}
+          </div>
 
           <p className="text-xs text-black-500 mt-15">{fecha}</p>
 
@@ -172,7 +157,7 @@ export default async function PostPage({ params }: PageProps) {
               <FaFacebook size={24} />
             </a>
             <a
-              href={`https://api.whatsapp.com/send?text=https://revelacionesdecaro.compost/${slug}`}
+              href={`https://api.whatsapp.com/send?text=https://revelacionesdecaro.com/post/${slug}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-green-500"
@@ -182,7 +167,7 @@ export default async function PostPage({ params }: PageProps) {
             </a>
             <a
               href={`https://twitter.com/intent/tweet?url=https://revelacionesdecaro.com/post/${slug}&text=${encodeURIComponent(
-                post.titulo
+                post.titulo,
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -193,10 +178,6 @@ export default async function PostPage({ params }: PageProps) {
             </a>
           </div>
         </article>
-
-        {/*   <aside className="hidden lg:block mt-12">
-          <AsideTags />
-        </aside> */}
       </div>
     );
   } catch (error) {
